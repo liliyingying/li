@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>个人网站</title>
+    <link rel="stylesheet" type="text/css" href="./网站.css"/>
+    <style type="text/css">
+        *{ margin: 0; padding: 0; text-decoration: none;}
+        body { padding: 20px;}
+        #container { width: 1300px; height: 600px; border: 3px solid #333; overflow: hidden; position: relative;}
+        #list { width: 9100px; height: 600px; position: absolute; z-index: 1;}
+        #list img { float: left;}
+        #buttons { position: absolute; height: 10px; width: 100px; z-index: 2; bottom: 20px; left: 600px;}
+        #buttons span { cursor: pointer; float: left; border: 1px solid #fff; width: 10px; height: 10px;
+                        border-radius: 50%; background: #333; margin-right: 5px;}
+        #buttons .on {  background: orangered;}
+        .arrow { cursor: pointer; display: none; line-height: 39px; text-align: center; font-size: 36px; 
+                font-weight: bold; width: 40px; height: 40px;  position: absolute; z-index: 2; top: 300px; 
+                background-color: RGBA(0,0,0,.3); color: #fff;}
+        .arrow:hover { background-color: RGBA(0,0,0,.7);}
+        #container:hover .arrow { display: block;}
+        #prev { left: 20px;}
+        #next { right: 20px;}
+    </style>
+    <script type="text/javascript">
+
+        window.onload = function () {
+            var container = document.getElementById('container');
+            var list = document.getElementById('list');
+            var buttons = document.getElementById('buttons').getElementsByTagName('span');
+            var prev = document.getElementById('prev');
+            var next = document.getElementById('next');
+            var index = 1;
+            var len = 5;
+            var animated = false;
+            var interval = 6500;
+            var timer;
+
+
+            function animate (offset) {
+                if (offset == 0) {
+                    return;
+                }
+                animated = true;
+                var time = 300;
+                var inteval = 10;
+                var speed = offset/(time/inteval);
+                var left = parseInt(list.style.left) + offset;
+
+                var go = function (){
+                    if ( (speed > 0 && parseInt(list.style.left) < left) || (speed < 0 && parseInt(list.style.left) > left)) {
+                        list.style.left = parseInt(list.style.left) + speed + 'px';
+                        setTimeout(go, inteval);
+                    }
+                    else {
+                        list.style.left = left + 'px';
+                        if(left>-200){
+                            list.style.left = -1300 * len + 'px';
+                        }
+                        if(left<(-1300 * len)) {
+                            list.style.left = '-1300px';
+                        }
+                        animated = false;
+                    }
+                }
+                go();
+            }
+
+            function showButton() {
+                for (var i = 0; i < buttons.length ; i++) {
+                    if( buttons[i].className == 'on'){
+                        buttons[i].className = '';
+                        break;
+                    }
+                }
+                buttons[index - 1].className = 'on';
+            }
+
+            function play() {
+                timer = setTimeout(function () {
+                    next.onclick();
+                    play();
+                }, interval);
+            }
+            function stop() {
+                clearTimeout(timer);
+            }
+
+            next.onclick = function () {
+                if (animated) {
+                    return;
+                }
+                if (index == 5) {
+                    index = 1;
+                }
+                else {
+                    index += 1;
+                }
+                animate(-1300);
+                showButton();
+            }
+            prev.onclick = function () {
+                if (animated) {
+                    return;
+                }
+                if (index == 1) {
+                    index = 5;
+                }
+                else {
+                    index -= 1;
+                }
+                animate(1300);
+                showButton();
+            }
+
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].onclick = function () {
+                    if (animated) {
+                        return;
+                    }
+                    if(this.className == 'on') {
+                        return;
+                    }
+                    var myIndex = parseInt(this.getAttribute('index'));
+                    var offset = -1300 * (myIndex - index);
+
+                    animate(offset);
+                    index = myIndex;
+                    showButton();
+                }
+            }
+
+            container.onmouseover = stop;
+            container.onmouseout = play;
+
+            play();
+
+        }
+    </script>
+</head>
+<body>
+<header>
+	<br />
+</header>
+
+<div id="container">
+    <div id="list" style="left: -1300px;">
+        <img src="img/刘亦菲5.jpg" alt="1"/>
+        <img src="img/迪1.jpg" alt="1"/>
+        <img src="img/杨2.jpg" alt="2"/>
+        <img src="img/刘亦菲3.jpg" alt="3"/>
+        <img src="img/杨4.jpg" alt="4"/>
+        <img src="img/刘亦菲5.jpg" alt="5"/>
+        <img src="img/迪1.jpg" alt="5"/>
+    </div>
+    <div id="buttons">
+        <span index="1" class="on"></span>
+        <span index="2"></span>
+        <span index="3"></span>
+        <span index="4"></span>
+        <span index="5"></span>
+    </div>
+    <a href="javascript:;" id="prev" class="arrow">&lt;</a>
+    <a href="javascript:;" id="next" class="arrow">&gt;</a>
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="one" style="width: 1300px; height: 400px;" >
+	 <img class="tu1" src="img/2-1.jpg">
+     <p class="word1">
+     	<b style="font-size: 1.5em">
+     		Hi,I'm Paul Lapkin, Experience Crafter from Canada.
+     	</b>
+	  <br />
+	  <br />
+	  <br />
+	  Lorem ipsum dolor sit amet,consectetuer adipiscing elit,sed diam nonummy nibh euismod
+		tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam,
+		quis nostrud exerci tation ullamcorper suscipit lobortis nisi ut aliquipex ea commodo 
+		consequat.
+	  
+	  <br />
+	  Duis autem vel eum iriure dolorin hendrerit in vulputate velit esse molestie consequat,vel
+		illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui
+		blandit praesent luptatum zzril delent augue duis dolore.
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  <b class="h1">   Hire Me!   </b>
+    </p>
+</div>
+<div class="two" style="width: 1300px; height: 600px;">
+	<br />
+	<br />
+	<br />
+	<b  class="word2">My Working Process</b>
+	<br />
+	<br />
+	<b class="word3">Hi,I'm Paul Lapkin, Experience Crafter from Canada.</b>
+	<br />
+	<br />
+	<br />
+	<br />
+	<b class="word4">
+		<b class="d1">DESIGN</b>
+	    <b class="d2">DEVELOPMENT</b>
+	    <b class="d3">TESTING</b>
+	    <b class="d4">LAUNCH</b>
+	</b>	
+</div>
+<div class="three" style="width: 1300px; height: 700px;">
+	<br />
+	<br />
+	<br />
+	<b class="word5">My Latest Works</b>
+	<br />
+	<b class="word6"> Hi,I'm Paul Lapkin, Experience Crafter from Canada.</b>
+	<br />
+	<br />
+	<div class="four">
+		<img class="tu2" src="img/图1.jpg">
+		<img class="tu3" src="img/图21.jpg">
+		<img class="tu4" src="img/图31.jpg">
+		<img class="tu5" src="img/图5.jpg">
+	</div>
+	<div class="five">
+		<img class="tu6" src="img/图4.jpg">
+		<img class="tu7" src="img/图6.jpg">
+		<img class="tu8" src="img/图7.jpg">
+		
+	</div>
+</div>
+<div class="six" style="width: 1300px; height: 600px;">
+	<br />
+		<form class="seven">
+			<b class="s1" style="color: white;">LEAVE A MESSAGE</b><br />
+		<br />
+			<span><b class="c1" style="color: white;">name*</b><input id="input"/ style="font-size: 2em"></span>
+			<br />
+			<span><b class="c1" style="color: white;">email*</b><input id="input"/ style="font-size: 2em"><span>
+			<br />
+			<span><b class="c1" style="color: white;">subject*</b><input id="input"/ style="font-size: 2em"><span>
+			<br />
+			<span ><b class="c1" style="color: white;">message*</b><input id="input"/ style="font-size: 6em"><span>
+			<br />
+			<br />
+			<button class="c5" id="find"  style="font-size:1.5em ;">Hire Me!</button>
+		</form>
+</div>
+	<footer>
+	<br />
+	<br />
+	<b class="f3">li ying | 2017-12-9</b>
+	<br />
+	<br />
+	<br />
+    </footer>
+</body>
+</html>

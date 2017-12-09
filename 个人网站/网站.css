@@ -1,0 +1,178 @@
+.one {
+	display: flex;
+	align-items: flex-start;
+}
+.tu1{
+	margin-right: 10em;
+}
+.word1{
+	flex: 1;
+	margin-right: 7em;
+}
+.h1{
+	display: flex;
+	background-color: #FF4500;
+	max-width: 100px;
+	justify-content: center;
+}
+.two {
+	background-color: RGBA(0,0,0,.1); color: #FFF;
+}
+.word2{
+	display: flex;
+	justify-content: center;
+	font-size: 2em;
+}
+.word3{
+	display: flex;
+	justify-content: center;
+	font-size: 0.8em;
+}
+.word4 {
+	display: flex;
+	justify-content: center;
+}
+.d1 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 200px;
+	min-width: 200px;
+    background: RGBA(0,180,230,.7); 
+	margin: 8px;
+}
+.d2 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 200px;
+	min-width: 200px;
+    background :RGBA(0,90,250,.7);
+	margin: 8px;
+}
+.d3 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 200px;
+	min-width: 200px;
+    background: RGBA(255,0,0,.7);
+	margin: 8px;
+}
+.d4 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 200px;
+	min-width: 200px;
+    background: RGBA(0,0,0,1.0);
+	margin: 8px;
+}
+.three{
+	background-color: RGBA(0,0,0,.05); color: #FFs;
+}
+.word5{
+	display: flex;
+	justify-content: center;
+	font-size: 2em;
+	font-family: "微软雅黑";
+}
+.word6{
+	display: flex;
+	justify-content: center;
+	font-size: 0.8em;
+	font-family: "微软雅黑";
+}
+.four{
+	display: flex;
+	justify-content: center;
+	margin: 10px;
+}
+.tu2 {
+	display: flex;
+	justify-content: center;
+	margin: 10px;
+}
+.tu3 {
+	display: flex;
+	justify-content: center;
+	margin: 10px;
+}
+.tu4 {
+	display: flex;
+	justify-content: center;
+	margin: 10px;
+}
+.tu5 {
+	display: flex;
+	justify-content: center;
+	margin: 10px;
+}
+.five{
+	display: flex;
+	justify-content: center;
+	margin: 10px;
+}
+.tu6 {
+	display: flex;
+	justify-content: center;
+	margin: 10px;
+}
+.tu7 {
+	display: flex;
+	justify-content: center;
+	margin: 10px;
+}
+.tu8 {
+	display: flex;
+	justify-content: center;
+	margin: 10px;
+}
+.six {
+	background: url(img/街道.jpg);
+	position: absolute; 
+	top: 2460px; 
+	left: 20px;
+}
+.seven {
+	
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: column;
+	min-height: 460px;
+	max-width: 1100px;
+    background: RGBA(0,0,0,.7);
+	margin-left: 50px;
+
+}
+.s1 {
+	display: flex;
+	font-size: 2em;
+	justify-content: flex-start;
+	margin-left: 10px;
+}
+.c1{display: flex;
+	margin: 10px;
+}
+.c2{display: flex;
+	margin: 10px;
+}
+.c3{display: flex;
+	margin: 10px;
+}
+.c4{display: flex;
+	margin: 10px;
+}
+.c5{display: flex;
+	margin: 10px;
+	}
+footer {
+	margin-top: 600px;
+	max-width: 1300px;
+	height: 130px;
+	background-color: rgba(0,0,0,.8);
+	text-align: center;
+}
+.f3{
+	color: white;
+}	
